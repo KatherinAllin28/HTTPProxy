@@ -6,6 +6,10 @@ Este documento proporciona una descripción detallada del proyecto de desarrollo
 
 El objetivo principal de este proyecto es desarrollar un sistema de proxy inverso para HTTP y un balanceador de carga utilizando sockets en el lenguaje de programación C. El proyecto tiene como finalidad principal proporcionar competencias en el diseño y desarrollo de aplicaciones concurrentes en red.
 
+Como podemos ver en la figura 1. En este proyecto, necesitamos configurar un servidor web para alojar una página HTML. Para lograr esto, vamos a utilizar una instancia de EC2 en AWS como nuestro servidor. Instalaremos un servidor web, como Apache, en esta instancia y luego desplegaremos nuestra página web en ella.
+En el lado del cliente, necesitaremos una terminal de consola y un navegador web. En cuanto al servidor, utilizaremos Linux, específicamente Ubuntu, como sistema operativo.
+
+
 ![Diagrama](https://github.com/LauZar12/HTTPProxy/assets/100243743/31692e32-c993-4640-b513-a4405a9a6224)
 
 
@@ -13,7 +17,7 @@ El objetivo principal de este proyecto es desarrollar un sistema de proxy invers
 
 Para llevar a cabo estas tareas, se realizarán acciones manuales que requerirán el uso de una máquina con cualquier sistema operativo, aunque se recomienda preferiblemente Linux, y una conexión a Internet. A continuación, detallamos los recursos específicos que se utilizarán:
 
-- **Amazon EC2**: Este servicio de cómputo en la nube de Amazon Web Services (AWS) nos permitirá crear y gestionar instancias virtuales de servidores en la nube. Utilizaremos EC2 para desplegar y configurar nuestras aplicaciones y servicios en un entorno de nube flexible y escalable.
+- **AWS EC2**: Este servicio de cómputo en la nube de Amazon Web Services (AWS) nos permitirá crear y gestionar instancias virtuales de servidores en la nube. Utilizaremos EC2 para desplegar y configurar nuestras aplicaciones y servicios en un entorno de nube flexible y escalable.
 
 - **Linux - Ubuntu 20.04**: Se utilizará el sistema operativo Linux, específicamente la distribución Ubuntu 20.04, debido a su amplia compatibilidad y soporte comunitario. Ubuntu es una opción popular para entornos de servidor debido a su estabilidad, seguridad y facilidad de uso.
 
