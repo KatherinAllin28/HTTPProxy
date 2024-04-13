@@ -1,7 +1,11 @@
 #include "proxy.h"
 
 /* Creation of sockets.
-====================================================
+=======================================================================
+| Sets up a socket for the proxy, configuring it with IPv4 and TCP,   |
+| binding it to a specified IP and port, and setting it to listen     |
+| for incoming connections.                                           |
+=======================================================================
 */
 int createSocket(char* ip, char* port, int queue)
 {
@@ -41,7 +45,7 @@ int createSocket(char* ip, char* port, int queue)
     return sockfd;
 }
 
-//Accepts incoming conection with the socket
+// Acceptance.
 int acceptConnection(int sockfd)
 {
     struct sockaddr_storage their_addr;
@@ -58,7 +62,7 @@ int acceptConnection(int sockfd)
     return clientfd;
 }
 
-//
+//Conects to a server specified by IP and port
 int connectSocket(char *ip, char *port)
 {
     struct addrinfo hints, *res;
@@ -145,6 +149,7 @@ char server1[] = "18.207.213.167";
 char server2[] = "52.71.80.136";
 char server3[] = "54.146.184.150";
 
+//Load Balancer with Round Robin
 void selectServer(int clientfd, char* httpRequest)
 {
     int apachefd;
@@ -186,6 +191,8 @@ void selectServer(int clientfd, char* httpRequest)
 char quit[5];
 int stop = 1;
 
+
+//Server-side controls
 int handleServer(void *args)
 {
     while (1)

@@ -3,7 +3,7 @@
 int main(int c, char** v)
 {
     // creo el socket del proxy
-    int proxyfd = createSocket(v[1], v[2], 1000); //cuando se ejecute, hay que poner en consola despues del ./proxy el ip del servidor y el puerto (8080)
+    int proxyfd = createSocket(v[1], v[2], 1000); //When it is executed, you must enter in the console after ./proxy the server IP and the port (8080)
 
     thrd_t server;
     int res;
@@ -12,18 +12,18 @@ int main(int c, char** v)
 
     while (close_server()) {
 
-        // acepto una coneccion del cliente
+        // Accepts a connection from the client
         int clientfd = acceptConnection(proxyfd);
 
-        // recivo la info del cliente
+        // Receives the client's info
         char buff[10000];
         recv(clientfd, buff, 10000, 0);
 
-        // traduccion del buff
+        // Translation of the buff
         char httpRequest[10000];
         format_http_request(buff, httpRequest);
 
-        // proxy
+        // Proxy
         selectServer(clientfd, httpRequest);
     }
 
