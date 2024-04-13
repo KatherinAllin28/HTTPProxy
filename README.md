@@ -6,7 +6,8 @@ Este documento proporciona una descripción detallada del proyecto de desarrollo
 
 El objetivo principal de este proyecto es desarrollar un sistema de proxy inverso para HTTP y un balanceador de carga utilizando sockets en el lenguaje de programación C. El proyecto tiene como finalidad principal proporcionar competencias en el diseño y desarrollo de aplicaciones concurrentes en red.
 
-![Diagrama](https://github.com/LauZar12/HTTPProxy/assets/100243743/37489060-8a33-4a38-93a1-3835db8a5cc7)
+![Diagrama](https://github.com/LauZar12/HTTPProxy/assets/100243743/31692e32-c993-4640-b513-a4405a9a6224)
+
 
 ## Recursos
 
