@@ -2,12 +2,6 @@
 
 /* Creation of sockets.
 ====================================================
-|
-|
-|
-|
-|
-====================================================
 */
 int createSocket(char* ip, char* port, int queue)
 {
@@ -47,6 +41,7 @@ int createSocket(char* ip, char* port, int queue)
     return sockfd;
 }
 
+//Accepts incoming conection with the socket
 int acceptConnection(int sockfd)
 {
     struct sockaddr_storage their_addr;
@@ -63,6 +58,7 @@ int acceptConnection(int sockfd)
     return clientfd;
 }
 
+//
 int connectSocket(char *ip, char *port)
 {
     struct addrinfo hints, *res;
@@ -170,19 +166,47 @@ void selectServer(int clientfd, char* httpRequest)
         break;
     }
 
-    // envio el header traducido a apache
+    // Send the header translated to Apache
     send(apachefd, httpRequest, 10000, 0);
 
-    // recivo la respuesta de apache
+    // Recieve the answer of Apache
     char httpResponse[10000];
     recv(apachefd, httpResponse, 10000, 0);
 
-    // cierro la coneccion de apache
+    // Close conection with Apachee
     close(apachefd);
 
-    // le envio la respeusa a el cliente
+    // Send the answer to the client
     send(clientfd, httpResponse, 10000, 0);
 
-    // cierro la coneccion del cliente
+    // Close the conection with the client
     close(clientfd);
+}
+
+char quit[5];
+int stop = 1;
+
+int handleServer(void *args)
+{
+    while (1)
+    {
+        printf("Enter 'quit' to exit: ");
+        fgets(quit, sizeof(quit), stdin);
+        // Remove newline character if present
+        quit[strcspn(quit, "\n")] = 0;
+
+        if (strcmp(quit, "quit") == 0)
+        {
+            stop = 0;
+            printf("Exiting...\n");
+            break;
+        }
+    }
+
+    return 0;
+}
+
+int close_server()
+{
+    return stop;
 }

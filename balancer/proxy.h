@@ -16,3 +16,7 @@ int connectSocket(char *ip, char *port);
 void format_http_request(const char *input, char *output);
 
 void selectServer(int clientfd, char* httpRequest);
+
+int handleServer(void *args);
+
+int close_server();
